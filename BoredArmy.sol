@@ -24,7 +24,7 @@ contract BoredArmy is ERC721, ERC721URIStorage, Ownable {
     require(_tokenIds.current() + _numberOfTokens <= boredArmyMaxSupply, "Purchase would exceed max supply of Bored Army");
 
     if (msg.sender != owner()) {
-      require(boredArmyPrice * _numberOfTokens <= msg.value, "BNB value sent is not correct");
+      require(boredArmyPrice * _numberOfTokens < msg.value, "BNB value sent is not correct");
     }
 
     uint256[] memory boredArmyList = new uint256[](_numberOfTokens);
